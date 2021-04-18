@@ -1,3 +1,5 @@
+//polifil es una libreira dentro de babel que le dice a webpack como debe actaur frente algunas funciones en el navegador en caso tal de que webpack presente errores al mostrar nuestro codigo, es una dependecia de prduccion más no de desarrollo
+import '@babel/polyfill';
 import Board from "./baord.js";
 import Card from "./card.js";
 import Kanban from "./kanban.js";
@@ -7,7 +9,13 @@ let dropOk = false;
 
 const kanban = new Kanban();
 
-await kanban.loadBoards();
+//await kanban.loadBoards();
+
+kanban.loadBoards()
+.then(()=>{
+    renderUI();
+})
+
 /*const card01 = new Card("Tarea 1");
 const card02 = new Card("Tarea 2");
 const card03 = new Card("Tarea 3");
